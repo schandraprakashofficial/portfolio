@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chandraprakash S | Business Development</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#fcfcfc;color:#111;font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+::selection{background:#000;color:#fff}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul{list-style:none}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;text-transform:uppercase;letter-spacing:.1em}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}
+header{padding:24px 64px 0;z-index:20;position:relative}
+#logo{width:100%;height:auto;fill:#111;overflow:hidden;display:block;transform:scale(1.03);animation:settle 1.4s cubic-bezier(.16,1,.3,1) .1s forwards}
+#logo polygon{transform:translateY(120px);opacity:0;animation:rise 1.2s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes rise{to{transform:none;opacity:1}}@keyframes settle{to{transform:scale(1)}}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.fade{opacity:0;animation:fade .8s ease-out forwards}
+.subnav{display:flex;justify-content:space-between;align-items:flex-start;margin-top:32px;font-size:11px;letter-spacing:.2em;line-height:1.7;color:#333}
+.subnav .c1{width:15%}.subnav .arr{width:5%;color:#999}.subnav .c2{width:30%}.subnav .c3{width:15%}.subnav a:hover{text-decoration:underline;color:#000}
+#burger{display:none;flex-direction:column;gap:6px;align-items:flex-end;z-index:60}
+#burger i{display:block;height:1.5px;width:32px;background:#000;transition:all .3s}
+#burger:hover i:first-child{width:24px}#burger:hover i:last-child{width:40px}
+#burger.open i:first-child{transform:translateY(3.75px) rotate(45deg);width:32px}
+#burger.open i:last-child{transform:translateY(-3.75px) rotate(-45deg);width:32px}
+#menu{display:none;position:absolute;top:120px;left:0;right:0;z-index:50;background:#fcfcfc;border-bottom:1px solid #e5e5e5;box-shadow:0 20px 25px -5px rgba(0,0,0,.1);padding:32px;font-size:14px;letter-spacing:.2em}
+#menu li{margin-bottom:24px}#menu.open{display:block;animation:fade .4s forwards}
+video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0;opacity:0;transition:opacity 1.2s}
+video.on{opacity:1}
+.hero-body{position:relative;display:flex;justify-content:space-between;flex:1;z-index:10}
+.left{padding:0 64px;margin-top:128px;width:384px}
+.idx{display:flex;align-items:center;gap:16px;font-size:12px;margin-bottom:24px}.idx s{width:64px;height:1.5px;background:rgba(0,0,0,.2)}
+h2.big{font-size:5rem;font-weight:400;letter-spacing:-.025em;line-height:1;margin-bottom:24px}
+.desc{font-size:14px;color:#374151;width:240px;line-height:1.6;margin-bottom:32px}
+.cta{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:12px;background:#1a1a1a;color:#fff;padding:14px 24px;border:1px solid #1a1a1a;border-radius:6px;font-size:15px;font-weight:500;transition:transform .3s,box-shadow .3s}
+.cta:hover{transform:translateY(-2px);box-shadow:3px 3px 0 rgba(17,17,17,.5);color:#111}
+.cta:active{transform:none;box-shadow:none}
+.cta::before{content:"";position:absolute;inset:0;background:#fcfcfc;transform:translateX(-101%);transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.cta:hover::before{transform:none}.cta>*{position:relative}
+.cta svg{transition:transform .5s}.cta:hover svg{transform:scale(1.1) rotate(-12deg) translateY(-4px)}
+.right{width:200px;margin:80px 64px 0 0}
+.right h3{font-size:10px;font-weight:700;letter-spacing:.15em;margin-bottom:8px}
+.right p{font-size:12px;color:#4b5563;line-height:1.6}
+.stat{margin-top:24px}.stat small{display:block;font-size:10px;color:#6b7280;letter-spacing:.15em}.stat b{font-size:13px;font-weight:500}
+.more{display:flex;align-items:center;gap:12px;margin-top:32px;font-size:10px;font-weight:700;letter-spacing:.15em}
+.more span{width:40px;height:40px;border-radius:50%;border:1px solid #9ca3af;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.more:hover span{background:#111;border-color:#000;color:#fff}
+.scroll{position:absolute;bottom:40px;left:64px;display:flex;align-items:center;gap:16px;font-size:10px;font-weight:600;color:#6b7280;letter-spacing:.15em;z-index:10}
+.scroll span{width:48px;height:48px;border:1px solid #d1d5db;border-radius:50%;display:flex;align-items:center;justify-content:center;gap:4px}
+.scroll i{width:1px;height:12px;background:#4b5563}
+.about{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding-top:128px;z-index:20;background:#fcfcfc}
+.label{font-size:11px;letter-spacing:.2em;margin-bottom:48px}.label b{font-weight:700;color:#111}.label em{font-style:normal;color:#6b7280}
+.about h2{font-size:4.2rem;line-height:1.1;font-weight:500;letter-spacing:-.025em;max-width:1000px;text-align:center;margin-bottom:48px;padding:0 24px}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:96px}
+.pill{display:flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid #d1d5db;border-radius:999px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);color:#1f2937;transition:all .3s}
+.pill:hover{background:#000;border-color:#000;color:#fff}
+.spacer{min-height:450px}
+.about .foot{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;padding:0 64px 48px;font-size:10px;color:#6b7280;pointer-events:none}
+.dark{position:relative;background:#0a0a0a;color:#fff;z-index:30;display:flex;flex-direction:column}
+#ptero{position:absolute;top:0;left:50%;width:1100px;max-width:none;transform:translate(-50%,-65%);opacity:0;pointer-events:none;transition:transform 1.4s ease-out,opacity 1.4s ease-out}
+#ptero.in{transform:translate(-50%,-78%);opacity:1}
+.dhead{position:relative;z-index:10;padding:192px 64px 0;margin-bottom:64px;display:flex;justify-content:space-between;gap:40px}
+.dhead h2{font-size:4rem;line-height:1.15;font-weight:500;letter-spacing:-.025em;max-width:56rem}
+.circ{display:inline-flex;gap:12px;vertical-align:middle;margin:0 16px;transform:translateY(-4px)}
+.circ span{width:56px;height:56px;border-radius:50%;border:1px solid #4b5563;background:#000;color:#9ca3af;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.circ span:hover{background:#fff;color:#000;border-color:#fff}
+.tag{font-size:10px;color:#9ca3af;letter-spacing:.15em;line-height:1.7;margin-bottom:24px}
+.dp{display:inline-block;margin:0 12px 12px 0;padding:8px 20px;border:1px solid #4b5563;border-radius:999px;font-size:10px;letter-spacing:.15em;color:#d1d5db;transition:all .3s}
+.dp:hover{background:#fff;color:#000;border-color:#fff}
+.hr{height:1px;background:#1f2937;position:relative;z-index:10}
+.panel{display:flex;position:relative;z-index:10}
+.pl{width:35%;border-right:1px solid #1f2937;min-height:500px;position:relative;padding:32px;display:flex;flex-direction:column;justify-content:space-between}
+.pl .stars{color:#6b7280;font-size:20px;letter-spacing:.3em;position:relative;z-index:2}
+.stage{position:absolute;inset:0}.stage img{position:absolute;inset:0;width:80%;height:80%;margin:auto;object-fit:contain;mix-blend-mode:lighten}
+.cnt{position:relative;z-index:2;font-size:10px;color:#888;letter-spacing:.15em;display:flex;gap:8px}.cnt i{font-style:normal;color:#333}
+.pr{width:65%}
+.ptop{display:flex;justify-content:space-between;padding:32px;border-bottom:1px solid #1f2937;font-size:10px;color:#9ca3af;letter-spacing:.15em}
+.ch{width:100%;display:flex;justify-content:space-between;align-items:center;text-align:left;padding:32px;color:#444;font-size:2rem;font-weight:500;letter-spacing:-.025em;transition:color .3s}
+.ch:hover{color:#999}.ch.active{color:#fff}.ch svg{opacity:0;transform:translate(-10px,10px);transition:all .4s;color:#9ca3af}.ch.active svg{opacity:1;transform:none}
+.cb{max-height:0;overflow:hidden;padding:0 32px;color:#9ca3af;font-size:15px;line-height:1.75;border-bottom:1px solid rgba(31,41,55,.8);transition:max-height .6s ease,padding .6s ease}
+.cb p{max-width:520px}.cb b{color:#fff;font-weight:500}.cb a{color:#fff;text-decoration:underline;text-underline-offset:3px;word-break:break-all}
+.ch.active+.cb{max-height:300px;padding:0 32px 32px}
+.dfoot{padding:32px;font-size:10px;color:#6b7280;letter-spacing:.15em;position:relative;z-index:10;background:#0a0a0a}
+@media(max-width:767px){
+header{padding:24px 24px 0}.subnav .arr,.subnav .c3,.right,.scroll,.about .foot{display:none}.subnav .c2{flex:1;width:auto;padding:0 8px}
+#burger{display:flex}.left{padding:0 40px;margin-top:80px}h2.big{font-size:3.5rem}
+.about{min-height:75vh;padding-top:96px}.about h2{font-size:2.2rem}.spacer{min-height:220px}.pills{margin-bottom:40px}
+#ptero{width:160vw}.dhead{flex-direction:column;padding:128px 32px 0}.dhead h2{font-size:1.8rem}.circ span{width:40px;height:40px}
+.panel{flex-direction:column}.pl,.pr{width:100%}.pl{min-height:400px;border-right:0;border-bottom:1px solid #1f2937}.ch{font-size:1.5rem}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs><filter id="sand" x="-30%" y="-30%" width="160%" height="160%">
+<feTurbulence type="fractalNoise" baseFrequency="1.8" numOctaves="4" result="n"/>
+<feDisplacementMap id="f-disp" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G" result="d"/>
+<feOffset id="f-off" in="d" dx="0" dy="0" result="o"/><feGaussianBlur id="f-blur" in="o" stdDeviation="0" result="b"/>
+<feColorMatrix id="f-cm" in="b" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/></filter></defs></svg>
+<div id="app"></div>
+<script>
+/* ============ EDIT YOUR CONTENT HERE ============ */
+const WORD = "GROWTH"; // letters available: G R O W T H
+const C = {
+  brand: ["Chandraprakash","S","AAVORAA"],
+  tagline: "Business development at AAVORAA, Vadavalli, Coimbatore. Portfolio of Chandraprakash S.",
+  nav: [["About","#about"],["What I Do","#work"],["LinkedIn","https://www.linkedin.com/in/chandraprakash-s-129495376/"],["Email","mailto:schandraprakashofficial@gmail.com"]],
+  hero: { title:["OPENING","DOORS"], desc:"Business development across every industry and sector, connecting people, partners and opportunities.",
+    cardTitle:"Chandraprakash S", cardText:["Business Development","AAVORAA","Vadavalli, Coimbatore"], stats:[["Role","Business Development"],["Industries","All sectors"]],
+    cardCta:"Email Me", cardHref:"mailto:schandraprakashofficial@gmail.com", scroll:"Scroll to explore" },
+  about: { label:"About Me", heading:"I help businesses grow by finding the right opportunities, partners and customers, in every industry and sector.",
+    pills:["Business Development","All Industries","All Sectors","Partnerships","Contact"], footL:"BUILT WITH CARE.", footR:"PORTFOLIO (C) 2026" },
+  dark: { h1:"Growing businesses across every industry", h2:"& sector.", tag:["WHAT I DO","HOW I WORK"], pills:["Business Development","All Industries","All Sectors"],
+    panel:"Explore what I do. See how I work.", chapter:"Section", foot:"THANKS FOR VISITING" },
+  chapters: [
+    ["About Me","media/01.png","I'm Chandraprakash S, working in business development at AAVORAA in Vadavalli, Coimbatore. I work with businesses across all industries and sectors, finding new opportunities, building partnerships and helping companies grow."],
+    ["AAVORAA","media/04.png","AAVORAA is based in Vadavalli, Coimbatore. I work here in business development, connecting the company with new clients, partners and markets across industries."],
+    ["Contact","media/05.png","<b>LinkedIn:</b> <a href='https://www.linkedin.com/in/chandraprakash-s-129495376/' target='_blank' rel='noopener'>linkedin.com/in/chandraprakash-s-129495376</a><br><b>Email:</b> <a href='mailto:schandraprakashofficial@gmail.com'>schandraprakashofficial@gmail.com</a>"]
+  ],
+  video:"media/hero.mp4", accent:"media/pterodactyl.png"
+};
+/* ================================================= */
+const L={G:["0,0 120,0 120,14 0,14","0,0 14,0 14,100 0,100","0,86 120,86 120,100 0,100","106,50 120,50 120,100 106,100","60,50 120,50 120,64 60,64"],
+R:["0,0 14,0 14,100 0,100","0,0 106,0 106,14 0,14","106,0 120,0 120,57 106,57","0,43 120,43 120,57 0,57","40,57 60,57 120,100 100,100"],
+O:["0,0 14,0 14,100 0,100","106,0 120,0 120,100 106,100","0,0 120,0 120,14 0,14","0,86 120,86 120,100 0,100"],
+W:["0,0 14,0 40,100 26,100","26,100 40,100 67,10 53,10","80,100 94,100 67,10 53,10","106,0 120,0 94,100 80,100"],
+T:["0,0 120,0 120,14 0,14","53,0 67,0 67,100 53,100"],H:["0,0 14,0 14,100 0,100","106,0 120,0 120,100 106,100","14,43 106,43 106,57 14,57"]};
+const ic=(p,s=14,w=2)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+const I={bone:'<path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"/>',
+dna:'<path d="m10 16 1.5 1.5M14 8l-1.5-1.5M15 2c-1.8 1.5-2 4-2 7s.2 5.5-2 8M9 22c1.8-1.5 2-4 2-7M2 15c3 .5 5.5-.5 8-2M14 11c2.5-1.5 5-2.5 8-2"/>',
+gem:'<path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6M2 9h20"/>',
+leaf:'<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+book:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2ZM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7Z"/>',
+plus:'<path d="M5 12h14M12 5v14"/>',arr:'<path d="M5 12h14m-6-6 6 6-6 6"/>',up:'<path d="M7 17 17 7M7 7h10v10"/>'};
+const icons=["bone","dna","gem","leaf","book"];
+const $=(h)=>h, logo=WORD.split("").map((ch,i)=>`<g transform="translate(${i*144},0)">${L[ch].map((p,j)=>`<polygon points="${p}" style="animation-delay:${.1+(i*.18)+j*.06}s"/>`).join("")}</g>`).join("");
+const nav=C.nav.map(([t,h])=>`<li><a href="${h}">${t}</a></li>`).join("");
+document.getElementById("app").innerHTML=`
+<section class="hero"><header>
+<svg id="logo" viewBox="0 0 840 100" aria-label="${WORD}">${logo}</svg>
+<div class="subnav mono fade" style="animation-delay:.5s">
+<div class="c1">${C.brand.map(b=>`<div>${b}</div>`).join("")}</div><div class="arr">${ic(I.arr,14,1)}</div>
+<p class="c2">${C.tagline}</p><div class="arr">${ic(I.arr,14,1)}</div><ul class="c3">${nav}</ul>
+<button id="burger" aria-label="Menu"><i></i><i></i></button></div></header>
+<ul id="menu" class="mono">${nav}</ul>
+<video id="vid" src="${C.video}" autoplay loop muted playsinline></video>
+<div class="hero-body"><div class="left">
+<div class="idx mono fade" style="animation-delay:.7s">01<s></s></div>
+<h2 class="big fade" style="animation-delay:.85s">${C.hero.title[0]}<br>${C.hero.title[1]}</h2>
+<p class="desc fade" style="animation-delay:1s">${C.hero.desc}</p>
+</div>
+<div class="right fade" style="animation-delay:1s"><h3 class="mono">${C.hero.cardTitle}</h3><p>${C.hero.cardText.join("<br>")}</p>
+${C.hero.stats.map(([k,v])=>`<div class="stat"><small class="mono">${k}</small><b>${v}</b></div>`).join("")}
+<a class="more mono" href="${C.hero.cardHref}"><span>${ic(I.plus,16,1.5)}</span>${C.hero.cardCta}</a></div></div>
+<div class="scroll mono fade" style="animation-delay:1.2s"><span><i></i><i></i></span>${C.hero.scroll}</div></section>
+<section class="about" id="about"><div class="label mono"><em>[ 02 ]</em> <b>${C.about.label}</b></div>
+<h2>${C.about.heading}</h2>
+<div class="pills">${C.about.pills.map((p,i)=>`<button class="pill">${ic(I[icons[i%5]])}${p}</button>`).join("")}</div>
+<div class="spacer"></div><div class="foot mono"><span>${C.about.footL}</span><span>${C.about.footR}</span></div></section>
+<section class="dark" id="work"><img id="ptero" src="${C.accent}" alt="">
+<div class="dhead"><h2>${C.dark.h1}<span class="circ"><span>${ic(I.bone,22,1.5)}</span><span>${ic(I.dna,22,1.5)}</span><span>${ic(I.leaf,22,1.5)}</span></span>${C.dark.h2}</h2>
+<div><p class="tag mono">${C.dark.tag.join("<br>")}</p>${C.dark.pills.map(p=>`<span class="dp mono">${p}</span>`).join("")}</div></div>
+<div class="hr"></div><div class="panel"><div class="pl"><span class="stars">***</span><div class="stage" id="stage"></div>
+<div class="cnt mono"><span id="num">03</span><i>/</i><span id="tot"></span></div></div>
+<div class="pr"><div class="ptop mono"><span>${C.dark.panel}</span><span id="chl"></span></div>
+${C.chapters.map(([n,,b],i)=>`<button class="ch" data-i="${i}">${n}${ic(I.up,22,1)}</button><div class="cb"><p>${b}</p></div>`).join("")}</div></div>
+<div class="hr"></div><p class="dfoot mono">${C.dark.foot}</p></section>`;
+
+const $q=s=>document.querySelector(s),$a=s=>[...document.querySelectorAll(s)];
+$q("#burger").onclick=e=>{e.currentTarget.classList.toggle("open");$q("#menu").classList.toggle("open")};
+setTimeout(()=>$q("#vid").classList.add("on"),2800);
+new IntersectionObserver(e=>e[0].isIntersecting&&$q("#ptero").classList.add("in"),{rootMargin:"100px"}).observe($q(".dark"));
+
+let active=0,cur=null;
+const set=(id,k,v)=>document.getElementById(id).setAttribute(k,v);
+function dissolve(img,entering,done){
+  const t0=performance.now();img.style.filter="url(#sand)";
+  (function tick(now){const t=Math.min((now-t0)/900,1),p=entering?t===1?0:Math.pow(1-t,4):Math.pow(t,3);
+    set("f-disp","scale",150*p);set("f-off","dy",(entering?-80:120)*p);set("f-off","dx",(entering?-30:30)*p);
+    set("f-blur","stdDeviation",6*p);set("f-cm","values",`1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 ${Math.max(0,1-p*1.2)} 0`);
+    if(t<1)requestAnimationFrame(tick);else{if(entering)img.style.filter="";done&&done()}})(t0);
+}
+function show(i){
+  active=i;const n=String(i+1).padStart(2,"0");$q("#num").textContent=n;$q("#tot").textContent=String(C.chapters.length).padStart(2,"0");$q("#chl").textContent=C.dark.chapter+" "+n;
+  $a(".ch").forEach((b,j)=>b.classList.toggle("active",j===i));
+  const stage=$q("#stage"),old=cur;
+  if(old)dissolve(old,false,()=>old.remove());
+  const img=new Image();img.alt=C.chapters[i][0];img.src=C.chapters[i][1];img.style.opacity=0;cur=img;stage.appendChild(img);
+  setTimeout(()=>{if(cur===img){img.style.opacity=1;dissolve(img,true)}},old?900:0);
+}
+$a(".ch").forEach(b=>b.onclick=()=>{clearInterval(timer);show(+b.dataset.i);timer=setInterval(()=>show((active+1)%C.chapters.length),3500)});
+show(0);let timer=setInterval(()=>show((active+1)%C.chapters.length),3500);
+</script>
+</body>
+</html>
